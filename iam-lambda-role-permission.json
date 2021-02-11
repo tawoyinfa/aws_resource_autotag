@@ -1,0 +1,41 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AutoTagCloudTrail",
+            "Effect": "Allow",
+            "Action": [
+                "cloudtrail:LookupEvents",
+                "cloudtrail:GetTrail",
+                "cloudtrail:ListTrails",
+                "cloudtrail:ListTags",
+                "cloudtrail:GetTrailStatus",
+                "cloudtrail:GetEventSelectors",
+                "cloudtrail:GetInsightSelectors",
+                "cloudtrail:DescribeTrails"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "AutoTagEC2",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:CreateTags",
+                "ec2:DeleteTags",
+                "ec2:DescribeInstances",
+                "ec2:DescribeVolumes"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "AutoTagLog",
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Resource": "arn:aws:logs:*:*:log-group:/aws/lambda/*:*"
+        }
+    ]
+}
